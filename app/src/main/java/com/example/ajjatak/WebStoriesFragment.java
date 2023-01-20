@@ -33,13 +33,13 @@ public class WebStoriesFragment extends Fragment {
 
 
         View v= inflater.inflate(R.layout.fragment_web_stories, null);
-        recyclerofweb = v.findViewById(R.id.recyclerview_WebStories);
-        modelClassArrayList=new ArrayList<>();
-        recyclerofweb.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new Adapter(getContext(),modelClassArrayList);
-        recyclerofweb.setAdapter(adapter);
+//        recyclerofweb = v.findViewById(R.id.recyclerview_WebStories);
+//        modelClassArrayList=new ArrayList<>();
+//        recyclerofweb.setLayoutManager(new LinearLayoutManager(getContext()));
+//        adapter = new Adapter(getContext(),modelClassArrayList);
+//        recyclerofweb.setAdapter(adapter);
 
-        findNews();
+       // findNews();
 
         return v;
     }

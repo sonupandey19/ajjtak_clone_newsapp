@@ -21,5 +21,13 @@ public interface ApiInterface {
             @Query("pagesize") int pagesize,
             @Query("apikey") String apikey
     );
+    @GET("top-headlines")
+    Call<MainNews> getWorld(
+            @Query("country") String country,
+            @Query("category") String category,
+            @Query("pagesize") int pagesize,
+            @Query("apikey") String apikey
+    );
+
 
 }

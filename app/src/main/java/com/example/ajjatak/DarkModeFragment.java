@@ -32,8 +32,16 @@ public class DarkModeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.lightmode).setOnClickListener(v->btnlightmode(modeDark));
-        view.findViewById(R.id.darktmode).setOnClickListener(v->btnlightmode(modeLigth));
+        view.findViewById(R.id.lightmode).setOnClickListener(v->{
+
+        view.findViewById(R.id.darkmode).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.lightmode).setVisibility(View.GONE);
+        btnlightmode(modeLigth);
+        });
+        view.findViewById(R.id.darkmode).setOnClickListener(v->{btnlightmode(modeDark);
+                view.findViewById(R.id.lightmode).setVisibility(View.VISIBLE);
+                view.findViewById(R.id.darkmode).setVisibility(View.GONE);
+});
     }
 
     public void btnlightmode(int mode){

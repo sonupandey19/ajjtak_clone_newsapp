@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
@@ -33,10 +34,8 @@ TabLayout tabLayout;
 TabItem findia,fworld,fvideos,fentertainment,ftechnology,fsports,fwebstories,fbusiness,fdhrma,fexplained, flifestyle,ftrending,fauto,fphotos;
 PageAdapter pageAdapter;
 Button darkmode, lightmode;
+String apikey="09dea45fcbd64eb2ab55e6c8fd633e17";
 
-
-
-    String apikey="09dea45fcbd64eb2ab55e6c8fd633e17";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,12 +61,7 @@ Button darkmode, lightmode;
         fauto = findViewById(R.id.auto);
         fphotos = findViewById(R.id.photos);
         tabLayout = findViewById(R.id.include);
-
-
-
-
-
-       ViewPager viewPager= findViewById(R.id.fragmentcontainer);
+        ViewPager viewPager= findViewById(R.id.fragmentcontainer);
         tabLayout= findViewById(R.id.include);
 
         pageAdapter=new PageAdapter(getSupportFragmentManager(), 0x12);
@@ -86,25 +80,12 @@ Button darkmode, lightmode;
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
-
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
-
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-
-
-
-
-
-
-
-
         bnview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -113,8 +94,7 @@ Button darkmode, lightmode;
 
                 if (id==R.id.Home){
                     loadfrag(new HomeFragment(),true);
-                    Toast.makeText(MainActivity.this,"Home",Toast.LENGTH_SHORT).show();
-
+                  //  Toast.makeText(MainActivity.this,"Home",Toast.LENGTH_SHORT).show();
                 }else if (id==R.id.newsreel){
                     loadfrag(new NewsReelsFragment(),false);
 
@@ -127,71 +107,118 @@ Button darkmode, lightmode;
                 }else{
                     loadfrag(new DarkModeFragment(),false);
                 }
-
-
-
                 return false;
             }
         });
 
         bnview.setSelectedItemId(R.id.Home);
-
         setSupportActionBar(toolbar);
 
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.nav_open, R.string.nav_close);
-
         drawerLayout.addDrawerListener(toggle);
-
         toggle.syncState();
 
        // loadfragment(new HomeFragment());
+        setupDrawerContent(navigationView);
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                int id = item.getItemId();
-
-                if (id==R.id.Home){
-                    loadfragment(new HomeFragment());
-                    Toast.makeText(MainActivity.this,"Home",Toast.LENGTH_SHORT).show();
-                }else if (id==R.id.india){
-                    Toast.makeText(MainActivity.this, "India", Toast.LENGTH_SHORT).show();
-                }else if (id==R.id.web_stories){
-
-                }else if (id==R.id.entertainment){
-
-                }else if (id==R.id.sports){
-
-                }else if (id==R.id.World){
-
-                }else if (id==R.id.explained){
-
-                }else if (id==R.id.bussiness){
-
-                }else if (id==R.id.dharm){
-
-                }else if (id==R.id.Technology){
-
-                }else if (id==R.id.lifestyle){
-
-                }else if (id==R.id.trending){
-
-                }else if (id==R.id.photos){
-
-                }else if(id==R.id.video){
-
-                }else {
-
-                }
-                drawerLayout.closeDrawer(GravityCompat.START);
-
-                return true;
-
-            }
-        });
     }
+    private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(
+                menuItem -> {
+                    selectDrawerItem(menuItem);
+                    return true;
+                });
+    }
+
+
+    public void selectDrawerItem(MenuItem menuItem) {
+        // Create a new fragment and specify the fragment to show based on nav item clicked
+        Fragment fragment = null;
+        Class fragmentClass;
+        switch(menuItem.getItemId()) {
+            case R.id.Home:
+                fragmentClass = HomeFragment.class;
+                tabLayout.getTabAt(0).select();
+                break;
+            case R.id.india:
+                fragmentClass = IndiaFragment.class;
+                tabLayout.getTabAt(1).select();
+                break;
+            case R.id.World:
+                fragmentClass = WorldFragment.class;
+                tabLayout.getTabAt(2).select();
+               break;
+            case R.id.video:
+                fragmentClass = VideoFragment.class;
+                tabLayout.getTabAt(3).select();
+                break;
+            case R.id.entertainment:
+                fragmentClass = EnternimentFragment.class;
+                tabLayout.getTabAt(4).select();
+                break;
+            case R.id.Technology:
+                fragmentClass = TechnologyFragment.class;
+                tabLayout.getTabAt(5).select();
+                break;
+            case R.id.sports:
+                fragmentClass = SportsFragment.class;
+                tabLayout.getTabAt(6).select();
+                break;
+            case R.id.web_stories:
+                fragmentClass = WebStoriesFragment.class;
+                tabLayout.getTabAt(7).select();
+                break;
+            case R.id.bussiness:
+                fragmentClass = BusinessFragment.class;
+                tabLayout.getTabAt(8).select();
+                break;
+            case R.id.dharm:
+                fragmentClass = DharmFragment.class;
+                tabLayout.getTabAt(9).select();
+                break;
+            case R.id.explained:
+                fragmentClass = ExplainedFragment.class;
+                tabLayout.getTabAt(10).select();
+                break;
+            case R.id.lifestyle:
+                fragmentClass = LifestyleFragment.class;
+                tabLayout.getTabAt(11).select();
+                break;
+            case R.id.trending:
+                fragmentClass = TrendingFragment.class;
+                tabLayout.getTabAt(12).select();
+                break;
+            case R.id.auto:
+                fragmentClass = AutoFragment.class;
+                tabLayout.getTabAt(14).select();
+                break;
+            case R.id.photos:
+                fragmentClass = PhotosFragment.class;
+                tabLayout.getTabAt(15).select();
+                break;
+
+
+            default:
+                fragmentClass = HomeFragment.class;
+        }
+
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Insert the fragment by replacing any existing fragment
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
+
+        // Highlight the selected item has been done by NavigationView
+        // Set action bar title
+        setTitle(menuItem.getTitle());
+        // Close the navigation drawer
+        drawerLayout.closeDrawers();
+    }
+
 
 
     @Override
