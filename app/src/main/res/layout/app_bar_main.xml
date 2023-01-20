@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="112dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#071977">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ajjj" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/search"
+                android:layout_marginLeft="230dp"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/include"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_below="@id/tool_bar"
+            android:layout_marginTop="0dp"
+            android:backgroundTint="@color/white"
+            app:tabIndicatorColor="#0A0D13"
+            app:tabIndicatorHeight="3.5dp"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#0C1017"
+            app:tabTextColor="#181C1C">
+
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/Home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/india"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="India">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/World"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="World">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Videos">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/entertainment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Entertainment">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/Technology"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Technology">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/Sports"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sports">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/web_stories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Web Stories">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/bussiness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Business">
+
+            </com.google.android.material.tabs.TabItem>
+
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/dharm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dharm">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/explained"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explained">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/lifestyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lifestyle">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/trending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trending">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Auto">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/photos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photos">
+
+            </com.google.android.material.tabs.TabItem>
+        </com.google.android.material.tabs.TabLayout>
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/include"
+            android:layout_marginTop="0dp"
+            android:id="@+id/fragmentcontainer">
+
+        </androidx.viewpager.widget.ViewPager>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_layout"/>
+
+</LinearLayout>
