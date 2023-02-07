@@ -7,12 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#fff5f5f5</color>
-    <color name="colorPrimaryDark">#ff757575</color>
-    <color name="colorAccent">#ff009688</color>
-    <color name="gray">#DD757575</color>
 
-    <!-- for light mode -->
-    <color name="backgroundcolors">#FCFCFC</color>
-    <color name="textcolor">#000000</color>
+    <!-- for Night mode-->
+    <color name="backgroundcolors">#212121</color>
+    <color name="textcolor">#ffffff</color>
 </resources>

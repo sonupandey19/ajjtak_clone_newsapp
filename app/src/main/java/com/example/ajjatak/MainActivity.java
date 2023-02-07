@@ -27,13 +27,11 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 DrawerLayout drawerLayout;
-NavigationView navigationView;
-Toolbar toolbar;
 BottomNavigationView bnview;
 TabLayout tabLayout;
-TabItem findia,fworld,fvideos,fentertainment,ftechnology,fsports,fwebstories,fbusiness,fdhrma,fexplained, flifestyle,ftrending,fauto,fphotos;
+TabItem findia,fvideos,fsports,fphotos;
 PageAdapter pageAdapter;
-Button darkmode, lightmode;
+
 String apikey="09dea45fcbd64eb2ab55e6c8fd633e17";
 
 
@@ -43,26 +41,12 @@ String apikey="09dea45fcbd64eb2ab55e6c8fd633e17";
         setContentView(R.layout.activity_main);
 
         drawerLayout = findViewById(R.id.my_drawer_layouts);
-        navigationView = findViewById(R.id.navigationView);
-        toolbar = findViewById(R.id.toolbar);
         bnview = findViewById(R.id.bottomnavigatyionview);
         findia = findViewById(R.id.india);
-        fworld = findViewById(R.id.World);
         fvideos = findViewById(R.id.video);
-        fentertainment = findViewById(R.id.entertainment);
-        ftechnology = findViewById(R.id.Technology);
-        fsports = findViewById(R.id.sports);
-        fwebstories = findViewById(R.id.web_stories);
-        fbusiness = findViewById(R.id.bussiness);
-        fdhrma = findViewById(R.id.dharm);
-        fexplained = findViewById(R.id.explained);
-        flifestyle = findViewById(R.id.lifestyle);
-        ftrending = findViewById(R.id.trending);
-        fauto = findViewById(R.id.auto);
-        fphotos = findViewById(R.id.photos);
         tabLayout = findViewById(R.id.include);
         ViewPager viewPager= findViewById(R.id.fragmentcontainer);
-        tabLayout= findViewById(R.id.include);
+
 
         pageAdapter=new PageAdapter(getSupportFragmentManager(), 0x12);
         viewPager.setAdapter(pageAdapter );
@@ -95,7 +79,7 @@ String apikey="09dea45fcbd64eb2ab55e6c8fd633e17";
                 if (id==R.id.Home){
                     loadfrag(new HomeFragment(),true);
                   //  Toast.makeText(MainActivity.this,"Home",Toast.LENGTH_SHORT).show();
-                }else if (id==R.id.newsreel){
+                }else if (id==R.id.Photo_gallery){
                     loadfrag(new NewsReelsFragment(),false);
 
                 }else if (id==R.id.livetv){
@@ -104,31 +88,24 @@ String apikey="09dea45fcbd64eb2ab55e6c8fd633e17";
                 }else if (id==R.id.game){
                     loadfrag(new GamesFragment(),false);
 
-                }else{
-                    loadfrag(new DarkModeFragment(),false);
+                } else if (id==R.id.btm_more) {
+                    loadfrag(new MoreFragment(),false);
                 }
                 return false;
             }
         });
 
-        bnview.setSelectedItemId(R.id.Home);
-        setSupportActionBar(toolbar);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.nav_open, R.string.nav_close);
+
+        //navigation action bar
+       /* ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.nav_open, R.string.nav_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
+*/
        // loadfragment(new HomeFragment());
-        setupDrawerContent(navigationView);
 
     }
-    private void setupDrawerContent(NavigationView navigationView) {
-        navigationView.setNavigationItemSelectedListener(
-                menuItem -> {
-                    selectDrawerItem(menuItem);
-                    return true;
-                });
-    }
+
 
 
     public void selectDrawerItem(MenuItem menuItem) {
@@ -144,57 +121,15 @@ String apikey="09dea45fcbd64eb2ab55e6c8fd633e17";
                 fragmentClass = IndiaFragment.class;
                 tabLayout.getTabAt(1).select();
                 break;
-            case R.id.World:
-                fragmentClass = WorldFragment.class;
-                tabLayout.getTabAt(2).select();
-               break;
+
             case R.id.video:
                 fragmentClass = VideoFragment.class;
-                tabLayout.getTabAt(3).select();
+                tabLayout.getTabAt(2).select();
                 break;
-            case R.id.entertainment:
-                fragmentClass = EnternimentFragment.class;
-                tabLayout.getTabAt(4).select();
-                break;
-            case R.id.Technology:
-                fragmentClass = TechnologyFragment.class;
-                tabLayout.getTabAt(5).select();
-                break;
+
             case R.id.sports:
                 fragmentClass = SportsFragment.class;
-                tabLayout.getTabAt(6).select();
-                break;
-            case R.id.web_stories:
-                fragmentClass = WebStoriesFragment.class;
-                tabLayout.getTabAt(7).select();
-                break;
-            case R.id.bussiness:
-                fragmentClass = BusinessFragment.class;
-                tabLayout.getTabAt(8).select();
-                break;
-            case R.id.dharm:
-                fragmentClass = DharmFragment.class;
-                tabLayout.getTabAt(9).select();
-                break;
-            case R.id.explained:
-                fragmentClass = ExplainedFragment.class;
-                tabLayout.getTabAt(10).select();
-                break;
-            case R.id.lifestyle:
-                fragmentClass = LifestyleFragment.class;
-                tabLayout.getTabAt(11).select();
-                break;
-            case R.id.trending:
-                fragmentClass = TrendingFragment.class;
-                tabLayout.getTabAt(12).select();
-                break;
-            case R.id.auto:
-                fragmentClass = AutoFragment.class;
-                tabLayout.getTabAt(14).select();
-                break;
-            case R.id.photos:
-                fragmentClass = PhotosFragment.class;
-                tabLayout.getTabAt(15).select();
+                tabLayout.getTabAt(3).select();
                 break;
 
 
@@ -243,11 +178,8 @@ String apikey="09dea45fcbd64eb2ab55e6c8fd633e17";
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-
-        if (flag)
-            ft.add(R.id.container,fragment);
-        else
-            ft.replace(R.id.container,fragment);
+        ft.replace(R.id.container,fragment);
+        ft.addToBackStack(null);
         ft.commit();
     }
 

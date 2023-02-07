@@ -7,19 +7,21 @@
         android:icon="@drawable/ic_baseline_home_24"/>
 
     <item
-        android:id="@+id/newsreel"
-        android:title="News Reel"
-        android:icon="@drawable/ic_baseline_videocam_24"/>
+        android:id="@+id/Photo_gallery"
+        android:title="Photo"
+        android:icon="@android:drawable/ic_menu_gallery"/>
     <item
         android:id="@+id/livetv"
-        android:title="Live TV"
-        android:icon="@drawable/ic_baseline_live_tv_24"/>
-    <item
-        android:id="@+id/darkmode"
-        android:title="Dark Mode"
-        android:icon="@drawable/ic_baseline_dark_mode_24"/>
+        android:title=""
+        />
+
     <item
         android:id="@+id/game"
         android:title="Game"
         android:icon="@drawable/ic_baseline_games_24"/>
+    <item
+        android:id="@+id/btm_more"
+        android:title="More"
+        android:icon="@drawable/baseline_more_vert_24"
+        />
 </menu>

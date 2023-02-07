@@ -65,9 +65,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
+                mauthor = itemView.findViewById(R.id.auther);
                 mheading = itemView.findViewById(R.id.mainheading);
-                mauthor = itemView.findViewById(R.id.author_name);
-                mtime = itemView.findViewById(R.id.time1);
                 mimageview = itemView.findViewById(R.id.image_view);
                 mcardview = itemView.findViewById(R.id.card_view);
             }
